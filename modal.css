@@ -1,0 +1,128 @@
+:root {
+    /* Variables */
+    --color-primary: #ff5544;
+    --font-default: 'Roboto', Arial, Helvetica, sans-serif;
+    --font-slab: 'Roboto Slab', var(--font-default);
+
+    font-family: var(--font-default);
+    font-size: 18px;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    color: #444;
+    background-color: white;
+    font-family: var(--font-slab);
+    text-transform: uppercase;
+    font-size: 90%;
+    padding: 0 10vw;
+    display: flex;
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+nav a {
+    color: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    display: block;
+    transition: all 0.05s linear;
+}
+
+nav a span {
+    position: relative;
+}
+
+nav a span::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0.1rem;
+    background-color: var(--color-primary);
+    position: absolute;
+    transition: all 0.15s ease-in-out;
+}
+
+nav a:hover span::after {
+    width: 100%;
+}
+
+nav a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--color-primary);
+}
+
+main {
+    font-size: 140%;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 10vw;
+    display: flex;
+    flex-direction: column;
+    background-image: url('background.png');
+    align-items: flex-start;
+}
+
+main button {
+    color: var(--color-primary);
+    font-family: var(--font-slab);
+    background-color: white;
+    border: 0;
+    padding: 0.75rem 2.5rem;
+    font-size: inherit;
+    border-radius: 5rem;
+    border: 0.1em solid white;
+    cursor: pointer;
+    transition: 0.075s all ease-out;
+}
+
+main button:hover {
+    background-color: transparent;
+    color: white;
+}
+
+/*
+    Modal styles
+*/
+
+.modal.open {
+    display: flex;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    padding: 10vh 0;
+}
+
+.modal .container {
+    background-color: white;
+    border-radius: 0.25rem;
+    width: 50vw;
+    padding: 2rem;
+    position: relative;
+}
+
+.modal .close-button {
+    font-size: 150%;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0.3rem;
+    right: 0.5rem;
+}
